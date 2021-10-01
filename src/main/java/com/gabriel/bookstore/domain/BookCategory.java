@@ -12,36 +12,36 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Category implements Serializable {
+public class BookCategory implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String name;
 	private String description;
 
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "bookCategory")
 	private List<Book> books = new ArrayList<>();
 
-	public Category() {
+	public BookCategory() {
 		super();
 	}
 
-	public Category(int id, String name, String description, List<Book> books) {
+	public BookCategory(Integer id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -82,7 +82,7 @@ public class Category implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		BookCategory other = (BookCategory) obj;
 		return id == other.id;
 	}
 

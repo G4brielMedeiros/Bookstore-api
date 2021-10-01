@@ -14,35 +14,37 @@ import javax.persistence.ManyToOne;
 public class Book implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String title;
+	private String author_name;
 	private String text;
 
 	@ManyToOne
 	@JoinColumn
-	private Category category;
+	private BookCategory bookCategory;
 
 	public Book() {
 		super();
 	}
 
-	public Book(int id, String title, String text, Category category) {
+	public Book(Integer id, String title, String author_name, String text, BookCategory bookCategory) {
 		super();
-		
+
 		this.id = id;
 		this.title = title;
+		this.author_name = author_name;
 		this.text = text;
-		this.category = category;
+		this.bookCategory = bookCategory;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -54,6 +56,14 @@ public class Book implements Serializable {
 		this.title = title;
 	}
 
+	public String getAuthor_name() {
+		return author_name;
+	}
+
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
+	}
+
 	public String getText() {
 		return text;
 	}
@@ -62,12 +72,12 @@ public class Book implements Serializable {
 		this.text = text;
 	}
 
-	public Category getCategory() {
-		return category;
+	public BookCategory getCategory() {
+		return bookCategory;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategory(BookCategory category) {
+		this.bookCategory = category;
 	}
 
 	@Override
