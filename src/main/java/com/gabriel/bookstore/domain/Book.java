@@ -1,23 +1,37 @@
 package com.gabriel.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-public class Book {
+@Entity
+public class Book implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	private String text;
 
+	@ManyToOne
+	@JoinColumn
 	private Category category;
 
 	public Book() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Book(int id, String title, String text, Category category) {
 		super();
+		
 		this.id = id;
 		this.title = title;
 		this.text = text;
