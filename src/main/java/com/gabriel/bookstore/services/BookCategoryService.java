@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gabriel.bookstore.DTOs.BookCategoryDTO;
 import com.gabriel.bookstore.domain.BookCategory;
 import com.gabriel.bookstore.repositories.BookCategoryRepo;
 import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
@@ -33,4 +34,13 @@ public class BookCategoryService {
 		obj.setId(null);
 		return repo.save(obj);
 	}
+
+	public BookCategory update(Integer id, BookCategoryDTO objDTO) {
+		BookCategory obj = this.findById(id);
+		obj.setName(objDTO.getName());
+		obj.setDescription(objDTO.getDescription());
+		return repo.save(obj);
+	}
+	
+	
 }
