@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import com.gabriel.bookstore.domain.Book;
 import com.gabriel.bookstore.domain.BookCategory;
 import com.gabriel.bookstore.repositories.BookRepo;
-import com.gabriel.bookstore.repositories.CategoryRepo;
+import com.gabriel.bookstore.repositories.BookCategoryRepo;
 
 @Service
 public class DBService {
 
 	@Autowired
-	private CategoryRepo categoryRepo;
+	private BookCategoryRepo categoryRepo;
 	@Autowired
 	private BookRepo bookRepo;
 

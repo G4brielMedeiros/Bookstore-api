@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gabriel.bookstore.domain.BookCategory;
-import com.gabriel.bookstore.repositories.CategoryRepo;
+import com.gabriel.bookstore.repositories.BookCategoryRepo;
 
 @Service
 public class BookCategoryService {
 	
 	@Autowired
-	private CategoryRepo repo;
+	private BookCategoryRepo repo;
 
 	public BookCategory findById(Integer id) {
 		Optional<BookCategory> obj = repo.findById(id);
