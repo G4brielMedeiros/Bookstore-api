@@ -1,17 +1,15 @@
 package com.gabriel.bookstore.DTOs;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+
 import com.gabriel.bookstore.domain.Book;
-import com.gabriel.bookstore.domain.BookCategory;
 
-public class BookDTO {
+public class BookDTO implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id;
 	private String title;
-	private String author;
-	private String text;
-	@JsonIgnoreProperties({"books", "id", "description"})
-	private BookCategory bookCategory;
 
 	public BookDTO() {
 		super();
@@ -22,9 +20,6 @@ public class BookDTO {
 		super();
 		this.id 			= obj.getId();
 		this.title 			= obj.getTitle();
-		this.author 		= obj.getAuthor();
-		this.text 			= obj.getText();
-		this.bookCategory 	= obj.getBookCategory();
 	}
 
 	public Integer getId() {
@@ -41,30 +36,6 @@ public class BookDTO {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public BookCategory getBookCategory() {
-		return bookCategory;
-	}
-
-	public void setBookCategory(BookCategory bookCategory) {
-		this.bookCategory = bookCategory;
 	}
 
 }
