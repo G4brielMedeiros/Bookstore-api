@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.gabriel.bookstore.DTOs.BookCategoryDTO;
@@ -40,6 +41,17 @@ public class BookCategoryService {
 		obj.setName(objDTO.getName());
 		obj.setDescription(objDTO.getDescription());
 		return repo.save(obj);
+	}
+
+	public void delete(Integer id) {
+
+		this.findById(id);
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new com.gabriel.bookstore.services.exceptions.DataIntegrityViolationException
+			("Category cannot be deleted; There are books assossiated to it.");
+		}
 	}
 	
 	
