@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.service;
+package com.gabriel.bookstore.services;
 
 import java.util.Arrays;
 

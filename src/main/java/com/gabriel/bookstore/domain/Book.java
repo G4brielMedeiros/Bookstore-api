@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Book implements Serializable {
 
@@ -19,7 +21,7 @@ public class Book implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
-	private String author_name;
+	private String author;
 	private String text;
 
 	@ManyToOne
@@ -30,12 +32,12 @@ public class Book implements Serializable {
 		super();
 	}
 
-	public Book(Integer id, String title, String author_name, String text, BookCategory bookCategory) {
+	public Book(Integer id, String title, String author, String text, BookCategory bookCategory) {
 		super();
 
 		this.id = id;
 		this.title = title;
-		this.author_name = author_name;
+		this.author = author;
 		this.text = text;
 		this.bookCategory = bookCategory;
 	}
@@ -56,12 +58,12 @@ public class Book implements Serializable {
 		this.title = title;
 	}
 
-	public String getAuthor_name() {
-		return author_name;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setAuthor_name(String author_name) {
-		this.author_name = author_name;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public String getText() {
@@ -72,12 +74,12 @@ public class Book implements Serializable {
 		this.text = text;
 	}
 
-	public BookCategory getCategory() {
+	public BookCategory getBookCategory() {
 		return bookCategory;
 	}
 
-	public void setCategory(BookCategory category) {
-		this.bookCategory = category;
+	public void setBookCategory(BookCategory bookCategory) {
+		this.bookCategory = bookCategory;
 	}
 
 	@Override
