@@ -28,4 +28,9 @@ public class BookCategoryService {
 	public List<BookCategory> findAll() {
 		return repo.findAll();
 	}
+	
+	public BookCategory create(BookCategory obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
 }
