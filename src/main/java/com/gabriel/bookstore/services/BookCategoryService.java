@@ -1,5 +1,6 @@
 package com.gabriel.bookstore.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,9 @@ public class BookCategoryService {
 						"Object not found! ID: " + id + " Type:" + BookCategory.class.getName()
 						)
 				);
+	}
+	
+	public List<BookCategory> findAll() {
+		return repo.findAll();
 	}
 }
