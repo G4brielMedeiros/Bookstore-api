@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gabriel.bookstore.domain.BookCategory;
 import com.gabriel.bookstore.repositories.BookCategoryRepo;
+import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class BookCategoryService {
@@ -16,6 +17,10 @@ public class BookCategoryService {
 
 	public BookCategory findById(Integer id) {
 		Optional<BookCategory> obj = repo.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(
+				() -> new ObjectNotFoundException(
+						"Object not found! ID: " + id + " Type:" + BookCategory.class.getName()
+						)
+				);
 	}
 }
