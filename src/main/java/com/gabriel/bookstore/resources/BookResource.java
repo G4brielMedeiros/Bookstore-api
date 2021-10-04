@@ -7,19 +7,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gabriel.bookstore.domain.BookCategory;
-import com.gabriel.bookstore.services.BookCategoryService;
+import com.gabriel.bookstore.domain.Book;
+import com.gabriel.bookstore.services.BookService;
 
 @RestController
-@RequestMapping("/categories")
-public class BookCategoryResource {
 
+@RequestMapping("/books")
+public class BookResource {
+	
 	@Autowired
-	private BookCategoryService service;
+	BookService service;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<BookCategory> findById(@PathVariable Integer id) {
-		BookCategory obj = service.findById(id);
+	public ResponseEntity<Book> findById(@PathVariable Integer id) {
+		Book obj = service.findbyId(id);
 		return ResponseEntity.ok().body(obj);
 	}
+
 }
