@@ -2,6 +2,10 @@ package com.gabriel.bookstore.DTOs;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.gabriel.bookstore.domain.BookCategory;
 
 public class BookCategoryDTO implements Serializable {
@@ -9,7 +13,13 @@ public class BookCategoryDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	
+	@NotEmpty(message = "NAME field must not be empty.")
+	@Length(min = 3, max = 100, message = "NAME field must be between 3 and 100 characters.")
 	private String name;
+	
+	@NotEmpty(message = "DESCRIPTION field must not be empty.")
+	@Length(min = 3, max = 200, message = "DESCRIPTION field must be between 3 and 200 characters.")
 	private String description;
 
 	public BookCategoryDTO() {

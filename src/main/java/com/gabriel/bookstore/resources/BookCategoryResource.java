@@ -4,8 +4,11 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +23,7 @@ import com.gabriel.bookstore.DTOs.BookCategoryDTO;
 import com.gabriel.bookstore.domain.BookCategory;
 import com.gabriel.bookstore.services.BookCategoryService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/categories")
 public class BookCategoryResource {
@@ -45,7 +49,7 @@ public class BookCategoryResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<BookCategory> create(@RequestBody BookCategory obj) {
+	public ResponseEntity<BookCategory> create(@Valid @RequestBody BookCategory obj) {
 		
 		obj = service.create(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -53,7 +57,7 @@ public class BookCategoryResource {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<BookCategoryDTO> update(@PathVariable Integer id, @RequestBody BookCategoryDTO objDTO) {
+	public ResponseEntity<BookCategoryDTO> update(@Valid @PathVariable Integer id, @RequestBody BookCategoryDTO objDTO) {
 		
 		BookCategory newObj = service.update(id, objDTO);
 		
