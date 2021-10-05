@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.gabriel.bookstore.domain.Book;
+import com.gabriel.bookstore.domain.BookCategory;
 import com.gabriel.bookstore.repositories.BookRepo;
 import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
 
@@ -32,8 +32,10 @@ public class BookService {
 		return repo.findAllByBookCategoryIdOrderByTitle(id_cat);
 	}
 	
-	public Book create(Book obj) {
+	public Book create(Integer id_cat, Book obj) {
 		obj.setId(null);
+		BookCategory cat = catService.findById(id_cat);
+		obj.setBookCategory(cat);
 		return repo.save(obj);
 	}
 	
@@ -52,11 +54,6 @@ public class BookService {
 
 	public void delete(Integer id) {
 		this.findbyId(id);
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new com.gabriel.bookstore.services.exceptions.DataIntegrityViolationException
-			("Book cannot be deleted; There is a category assossiated to it.");
-		}
+		repo.deleteById(id);
 	}
 }
