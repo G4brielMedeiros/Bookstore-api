@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.gabriel.bookstore.DTOs.BookDTO;
 import com.gabriel.bookstore.domain.Book;
 import com.gabriel.bookstore.repositories.BookRepo;
 import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
@@ -28,9 +27,9 @@ public class BookService {
 				"Object not found! ID: " + id + " Type:" + Book.class.getName()));
 	}
 	
-	public List<Book> findAll(Integer id_cat) {
+	public List<Book> findAllbyCategory(Integer id_cat) {
 		catService.findById(id_cat);
-		return repo.findAllByCategory(id_cat);
+		return repo.findAllByBookCategoryIdOrderByTitle(id_cat);
 	}
 	
 	public Book create(Book obj) {
@@ -38,12 +37,19 @@ public class BookService {
 		return repo.save(obj);
 	}
 	
-	public Book update(Integer id, BookDTO objDTO) {
-		Book obj = this.findbyId(id);
-		obj.setTitle(objDTO.getTitle());
-		return repo.save(obj);
+	public Book update(Integer id, Book obj) {
+		Book newObj = this.findbyId(id);
+		updateData(newObj, obj);
+		return repo.save(newObj);
 	}
 	
+	private void updateData(Book newObj, Book obj) {
+
+		newObj.setTitle(obj.getTitle());
+		newObj.setAuthor(obj.getAuthor());
+		newObj.setText(obj.getText());
+	}
+
 	public void delete(Integer id) {
 		this.findbyId(id);
 		try {
