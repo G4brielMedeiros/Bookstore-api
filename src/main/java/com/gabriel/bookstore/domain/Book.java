@@ -33,7 +33,7 @@ public class Book implements Serializable {
 	private String author;
 	
 	@NotEmpty(message = "TEXT field must not be empty.")
-	@Length(min = 1, max = 2000000, message = "TEXT field must be between 10 and 2,000,000 characters.")
+	@Length(min = 10, max = 2000000, message = "TEXT field must be between 10 and 2,000,000 characters.")
 	private String text;
 
 	@JsonIgnore
