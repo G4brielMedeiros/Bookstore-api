@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.services;
+package com.gabriel.bookstore.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.gabriel.bookstore.domain.Book;
 import com.gabriel.bookstore.domain.BookCategory;
-import com.gabriel.bookstore.repositories.BookRepo;
-import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
+import com.gabriel.bookstore.repository.BookRepo;
+import com.gabriel.bookstore.service.exception.ObjectNotFoundException;
 
 @Service
 public class BookService {

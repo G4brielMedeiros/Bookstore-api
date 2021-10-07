@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.services;
+package com.gabriel.bookstore.service;
 
 import java.util.Arrays;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.gabriel.bookstore.domain.Book;
 import com.gabriel.bookstore.domain.BookCategory;
-import com.gabriel.bookstore.repositories.BookRepo;
-import com.gabriel.bookstore.repositories.BookCategoryRepo;
+import com.gabriel.bookstore.repository.BookCategoryRepo;
+import com.gabriel.bookstore.repository.BookRepo;
 
 @Service
 public class DBService {

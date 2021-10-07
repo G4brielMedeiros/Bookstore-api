@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.resources;
+package com.gabriel.bookstore.resource;
 
 import java.net.URI;
 import java.util.List;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gabriel.bookstore.DTOs.BookCategoryDTO;
 import com.gabriel.bookstore.domain.BookCategory;
-import com.gabriel.bookstore.services.BookCategoryService;
+import com.gabriel.bookstore.dto.BookCategoryDTO;
+import com.gabriel.bookstore.service.BookCategoryService;
 
 @CrossOrigin("*")
 @RestController

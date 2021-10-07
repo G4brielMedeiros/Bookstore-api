@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.repositories;
+package com.gabriel.bookstore.repository;
 
 import java.util.List;
 

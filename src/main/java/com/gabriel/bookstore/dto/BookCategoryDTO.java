@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.DTOs;
+package com.gabriel.bookstore.dto;
 
 import java.io.Serializable;
 

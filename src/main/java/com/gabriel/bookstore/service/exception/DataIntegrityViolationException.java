@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.services.exceptions;
+package com.gabriel.bookstore.service.exception;
 
 public class DataIntegrityViolationException extends RuntimeException {
 

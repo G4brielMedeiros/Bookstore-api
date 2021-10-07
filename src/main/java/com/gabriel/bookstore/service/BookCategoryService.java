@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.services;
+package com.gabriel.bookstore.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.gabriel.bookstore.DTOs.BookCategoryDTO;
 import com.gabriel.bookstore.domain.BookCategory;
-import com.gabriel.bookstore.repositories.BookCategoryRepo;
-import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
+import com.gabriel.bookstore.dto.BookCategoryDTO;
+import com.gabriel.bookstore.repository.BookCategoryRepo;
+import com.gabriel.bookstore.service.exception.ObjectNotFoundException;
 
 @Service
 public class BookCategoryService {
@@ -49,7 +49,7 @@ public class BookCategoryService {
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
-			throw new com.gabriel.bookstore.services.exceptions.DataIntegrityViolationException
+			throw new com.gabriel.bookstore.service.exception.DataIntegrityViolationException
 			("Category cannot be deleted; There are books assossiated to it.");
 		}
 	}

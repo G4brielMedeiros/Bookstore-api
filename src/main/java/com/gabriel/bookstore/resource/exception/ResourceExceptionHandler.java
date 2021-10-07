@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.resources.exceptions;
+package com.gabriel.bookstore.resource.exception;
 
 import javax.servlet.ServletRequest;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.gabriel.bookstore.services.exceptions.DataIntegrityViolationException;
-import com.gabriel.bookstore.services.exceptions.ObjectNotFoundException;
+import com.gabriel.bookstore.service.exception.DataIntegrityViolationException;
+import com.gabriel.bookstore.service.exception.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

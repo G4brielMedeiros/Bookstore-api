@@ -1,4 +1,4 @@
-package com.gabriel.bookstore.resources.exceptions;
+package com.gabriel.bookstore.resource.exception;
 
 public class StandardError {
 
