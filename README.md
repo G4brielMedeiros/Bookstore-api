@@ -1,8 +1,4 @@
 # Bookstore-API
-REST API Spring-Angular project
-This is an example project using Java/Spring-Boot for the back-end and TypeScript/Angular (WIP) on the front-end.
+REST API Spring-Angular project.
 
-### To do:
-- Finish REST API
-- Start working on front-end
-- Deploy complete project
+Using Java/Spring-Boot, this project serves a RESTful API as the backend to a mock bookstore project.
