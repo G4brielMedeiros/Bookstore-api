@@ -25,7 +25,7 @@ import com.gabriel.bookstore.domain.Book;
 import com.gabriel.bookstore.dto.BookDTO;
 import com.gabriel.bookstore.service.BookService;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @RestController
 
 @RequestMapping("/books")
@@ -56,6 +56,7 @@ public class BookResource {
 			@Valid @RequestBody Book obj) {
 		Book newObj = service.create(id_cat, obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
+		//FIX PORTUGUESE TO ENGLISH
 		return ResponseEntity.created(uri).build();
 	}
 

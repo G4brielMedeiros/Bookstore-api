@@ -23,7 +23,7 @@ import com.gabriel.bookstore.domain.BookCategory;
 import com.gabriel.bookstore.dto.BookCategoryDTO;
 import com.gabriel.bookstore.service.BookCategoryService;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/categories")
 public class BookCategoryResource {
